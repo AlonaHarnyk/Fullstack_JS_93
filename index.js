@@ -146,3 +146,126 @@
 
 // const word1 = "     ";
 // console.log(word1.length);
+
+// ❗️❗️❗️ Операції з приведенням типів
+
+// console.log(2 + 5 + "" + 1 + 0 - 10); // 700
+// console.log('710bjk' - 10); // NaN
+// console.log("" + 1 - 0); // 1
+// console.log(true + false); // 1
+// console.log(true + ""); // 'true'
+// console.log(true + "false"); // 'truefalse'
+// console.log(true - "false"); // NaN
+// console.log(6 / "3"); // 2
+// console.log("2" * "3"); // 6
+// console.log(4 + 5 + "px"); // '9px'
+// console.log("$" + 4 + 5); // '$45'
+// console.log("4" - 2); // 2
+// console.log("4" + 2); // '42'
+// console.log("4" / 2); // 2
+// console.log("4px" - 2); // NaN
+// console.log(7 / 0); // Infinity
+// console.log("  -9  " + 5); // ' -9 5'
+
+// ❗️❗️❗️ Методи рядків
+
+// const word2 = "hTMl";
+// console.log(word2.toLowerCase()) // html
+// console.log(word2.toUpperCase()) // HTML
+
+// const word3 = "superjavascript";
+// const substring1 = "java";
+// const substring2 = "css";
+
+// console.log(word3.indexOf(substring1)); // 5
+// console.log(word3.indexOf(substring2)); // -1
+
+// const word4 = "banana";
+// console.log(word4.indexOf("a")); // 1
+// console.log(word4.lastIndexOf("a")); // 5
+// console.log(word4.indexOf("n")); // 2
+// console.log(word4.lastIndexOf("n")); // 4
+
+// const sentense = "two tasty bananas";
+// console.log(sentense.indexOf(" ")); // 3
+// console.log(sentense.indexOf("tasty bananas")); // 4
+
+// console.log(word3.includes(substring1)); // true
+// console.log(word3.includes("Java")); // false
+// console.log(word3.includes(substring2)); // false
+
+// const jsFileName = "script.js";
+// const minifiedJsFileName = jsFileName.replace(".js", ".min.js");
+// console.log(jsFileName) // "script.js"
+// console.log(minifiedJsFileName); // "script.min.js"
+
+// const cssFileNames = "styles.css, about.css, portfolio.css";
+// // const minifiedCssFileNames1 = cssFileNames.replace(".css", ".min.css");
+// // console.log(minifiedCssFileNames1); // "styles.min.css, about.css, portfolio.css"
+// const minifiedCssFileNames2 = cssFileNames.replaceAll(".css", ".min.css");
+// console.log(minifiedCssFileNames2); // "styles.min.css, about.min.css, portfolio.min.css"
+
+// const word5 = "javascript";
+
+// const word6 = word5.slice();
+// console.log(word6); // 'javascript'
+// console.log(word5.slice(0, word5.length)); // 'javascript'
+// console.log(word5.slice(0)); // 'javascript'
+// console.log(word5.slice(0, 10)); // 'javascript'
+
+// console.log(word5.slice(3)); // 'ascript'
+
+// const word7 = word5.slice(0, 4);
+// console.log(word7); // 'java'
+// console.log(word5.slice(4)); // 'script'
+// console.log(word5.slice(-6, -3)); // 'scr'
+// console.log(word5.slice(-1)); // 't'
+// console.log(word5.slice(-6)); // 'script'
+
+// console.log('    a    '.trim().length) // 1
+
+
+// ❗️❗️❗️  Логічні операторы (&&,  ||,  !)
+
+// // У логічних операціях  відбуваєтьмя приведення типів операндів до true або false.
+
+// (falsy) значення, що приводяться до false у логічному перетворенні:
+// 0
+// NaN
+// null
+// undefined
+// порожній рядок
+// false.
+
+// Абсолютно все інше приводиться до true.
+
+// && - запинається на false
+// // Якщо всі операнди були приведені до true, повертається остання.
+// // Якщо результат приведення операнди до буля false, перевірка зупиняється та повертається вихідне значення цього операнда.
+
+// || - запинається на true
+// Повертає перше правдиве (приведене до true) значення або останнє, якщо таке truthy значення не знайдено.
+
+// ! - інвертує true в false, або false в true
+
+// console.log(true && 3); // 3
+// console.log(false && 3); // false
+// console.log(false && false); // false
+// console.log(true && 4 && "kiwi"); // 'kiwi'
+// console.log(true && "" && "kiwi"); // ''
+// console.log(true && " " && "kiwi"); // 'kiwi'
+// console.log(true && 0 && "kiwi"); // 0
+// console.log(true || 3); // true
+// console.log(true || 3 || 4); // true
+// console.log(true || false || 7); // true
+// console.log(false || true || 7); // true
+// console.log(null || 2 || undefined); // 2
+// console.log((1 && null && 2) > 0); // false
+// console.log(null || (2 && 3) || 4); // 3
+// console.log(null || (null && 3) || 4); // 4
+
+// ?? - оператор нульового злиття
+
+// console.log(null ?? 1)
+// console.log(undefined ?? 1)
+// console.log(false ?? 1)
