@@ -1,150 +1,213 @@
-// const a = [1, 2, 3, 4, 5]
-// for(let i = 0; i < a.length; i+=1) {
-//     // console.log(a[i])
-//     console.log(a[i] + 10)
+// function isIncluded(array, number) {
+//     const result = array.includes(number)
+//     console.log(result)
 // }
 
-// const numbers = [1, 2, 3, 4, 5]
+// isIncluded([1, 2, 5, 8, 3], 4) // false
+// isIncluded([1, 2, 5, 8, 3], 5) // true
+// isIncluded(5, [1, 3, 5]) // error
 
-// for(const number of numbers) {
-//     // console.log(numbers.indexOf(number))
-//     console.log(number + 10)
+// function isIncluded(array, number) {
+//     const result = array.includes(number)
+//     // console.log(result)
+//     return result
 // }
 
-// ❗️❗️❗️ Присвоєння за посиланням
+// isIncluded([1, 2, 5, 8, 3], 4) // false
 
-// const a = 2;
-// const b = a;
-// console.log(a === b)
-// console.log(2 === 2)
+// const a = isIncluded([1, 2, 5, 8, 3], 4)
+// console.log(a)
 
-// const array1 = [1, 2, 3];
+// console.log(isIncluded([1, 2, 5, 8, 3], 4)) // false
+// console.log(isIncluded([1, 2, 5, 8, 3], 5)) // true
 
-// const array2 = array1;
+// const a = isIncluded([1, 2, 5, 8, 3], 4)
+// console.log(a) // false
+// const b = isIncluded([1, 2, 5, 8, 3], 5)
+// console.log(b) // true
 
-// console.log(array1)
-// console.log(array2)
-// console.log(array1 === array2)
-// console.log([5, 6, 7] === [5, 6, 7]) //false
-
-// array1[0] = 10;
-
-// console.log(array1)
-// console.log(array2);
-
-// array2[2] = 5;
-
-// console.log(array1)
-
-// const array3 = array2
-
-// console.log(array3)
-
-// array3[1] = 100;
-
-// console.log(array1)
-
-// array2.length = 0;
-
-// console.log(array3)
-
-// array1[2] = 1000;
-// console.log(array3)
-// console.log(array1[0])
-
-// for (const elem of array3) {
-//     console.log(elem)
+// function add(a, b) {
+// //   const sum = a + b
+// //   return sum
+//   return a + b;
 // }
 
-// console.log(array3.length)
+// const number1 = add(1, 3); // 4
+// console.log(number1)
+// const number2 = add(5, 7); // 12
+// console.log(number2)
 
-// let array1 = [1, 3, 5]
-// let array2 = array1;
+// const sum = number1 + number2 // 16
+// console.log(sum)
 
-// array1[0] = 50;
-// console.log(array1)
-// console.log(array2)
+// const sum = add(1, 3) + add(5, 7)
+// console.log(sum) // 16
 
-// array1 = [9, 90, 900]
+// function add(a, b) {
+//   if (typeof a !== "number" || typeof b !== "number") {
+//     // // console.log('One of operands is not a number')
+//     // return
+//     return "One of operands is not a number";
+//   }
+//   return a + b;
+// }
 
-// console.log(array1)
-// console.log(array2)
+// // console.log(add(3, 7)) // 10
+// console.log(add(5, "10")); // 'One of operands is not a number'
+// console.log(add(3, "7"));
 
-// array2 = array1;
+// ❗️❗️❗️ Значення параметрів за замовчуванням
 
-// console.log(array1)
-// console.log(array2)
+// function add(a = 0, b = 0) {
+//   // const sum = a + b
+//   // return sum
+//  console.log(a)
+//  console.log(b)
+//  return a + b;
+// }
 
-// const a = [1, 2, 3]
-// const b = a
-// console.log(a === b) // true
+// console.log(add(1))
 
-// const c = [1, 2, 3]
-// const d = [1, 2, 3]
-// console.log(c === d) // false
-// console.log(c[0] === d[0]) // true
+// function add(a = 0, b = 0 , c = 0 ) {
+//     console.log(a + b + c)
+// }
 
-// const e = [1, 2, [3, 4]]
-// const f = [1, 2, [3, 4]]
-// // console.log(e[2] === f[2]) // false
-// // console.log(e[0] === f[0]) // true
-// console.log(e[2][0]) // 3
+// const num1 = 3;
+// const num2 = 4
 
-// ❗️❗️❗️ Методи масивів
+// add(num1, num2)
+// add(3)
+// add()
 
-// const string = '1-!2-!3-!4-!5-!6-!7-!8-!9'
-// console.log(string.split('!'))
+// ❗️❗️❗️ Arguments
 
-// const string1 = 'vehq jrf vbh jre bv h'
-// console.log(string1.split(' '))
+// function add() {
+//     console.log(arguments)
+//     // console.log(arguments[0])
+//     // console.log(arguments.length)
+//     let sum = 0;
+//     for(const arg of arguments) {
+//         console.log(arg)
+//         sum +=arg
+//     }
+//     console.log(sum)
+//     return sum
+// }
 
-// const string2 = "123456789";
-// const array = string2.split("");
-// console.log(array);
+// add(5, 7, 4, 9, 10)
+// add(5, 7, 4, 9, 10, 100, 45, 36)
 
-// for (const element of array) {
-//     const number = Number(element)
+// function isIncluded() {
+//     console.log(arguments)
+//     const array = Array.from(arguments);
+//     console.log(array)
+//     const number = arguments[arguments.length - 1]
 //     console.log(number)
+//     const array2 = array.slice(0, -1)
+//     console.log(array2)
+//     console.log(array2.includes(number))
+//     return array2.includes(number)
 // }
 
-// for (let i = 0; i < array.length; i += 1) {
-//   array[i] = Number(array[i]);
+// function isIncluded(...array) {
+//     console.log(array)
+//     const number = array[array.length - 1]
+//     console.log(number)
+//     const array2 = array.slice(0, -1)
+//     console.log(array2)
+//     console.log(array2.includes(number))
+//     return array2.includes(number)
 // }
 
-// console.log(array);
+// isIncluded(2, 5, 6, 8, 4, 9, 3, 7)
 
-// const array3 = [1, 2, 3, 4, 5, 6, 7];
-// const string3 = array3.join('')
-// console.log(string3)
+// console.log(add(3, 7))
+// console.log(add( 5, '10'))
 
-// const array5 = [1,4,6,7,4,7,89]
-// // const res1 = array5.includes(100 && 4)
-// // console.log(res1) // true
-// const res2 = array5.includes(100) && array5.includes(4)
-// // // console.log(res2) // false
+// function add(a, b) {
+//   if (typeof a !== "number" || typeof b !== "number") {
+//     // // console.log('One of operands is not a number')
+//     // return
+//     return "One of operands is not a number";
+//   }
+//   return a + b;
+// }
 
-// const emptyArray = [0, 90]
-// // emptyArray.push(1)
-// // console.log(emptyArray)
-// // const length1 = emptyArray.push(1)
-// // console.log(length1) // 3
-// const length2 = emptyArray.push(2, 3, 100, 200, 1000, 100000)
-// // console.log(emptyArray)
-// console.log(length2)
+// const add = function(a, b) {
+//     if(typeof a !== 'number' || typeof b !== 'number') {
+//         return 'One of operands is not a number'
+//         // return
+//     }
+//     return a + b
+// }
 
-// const notEmptyArray = [1, 2, 3, 4, 5]
-// // notEmptyArray.pop()
-// // console.log(notEmptyArray)
-// const deletedEl = notEmptyArray.pop()
-// console.log(notEmptyArray)
-// console.log(deletedEl)
+// console.log(add(3, 7))
+// console.log(add( 5, '10'))
 
-// const superArray = [1, 2, 3, 4, 5]
-// const length2 = superArray.unshift(5, 10)
-// console.log(superArray)
-// console.log(length2)
+// ❗️❗️❗️ stack
 
-// const superArray1 = [1, 2, 3, 4, 5]
-// const deletedEl1 = superArray1.shift()
-// console.log(superArray1)
-// console.log(deletedEl1)
+// function bar() {
+//   console.log("bar");
+//   console.log(222);
+
+// }
+
+// function baz() {
+//   console.log("baz");
+//   console.log(444);
+// }
+
+// function foo() {
+//   console.log("foo");
+//   console.log(111)
+//   bar();
+//   console.log(333);
+//   baz();
+//   console.log(555);
+//     // foo()
+// }
+
+// foo();
+
+//   console.log('!!!')
+
+// ❗️❗️❗️ Задачі
+
+// function transform(...args) {
+// //   console.log(args);
+//   const array = [];
+//   for (const arg of args) {
+//     if (typeof arg === "number") {
+//       array.push(String(arg));
+//     } else {
+//       array.push(Number(arg));
+//     }
+//   }
+//   return array;
+// }
+
+// function transform(...args) {
+//   const array = [];
+//   for (const arg of args) {
+//     typeof arg === "number" ? array.push(String(arg)) : array.push(Number(arg));
+//   }
+//   return array;
+// }
+
+// console.log(transform(4, "5", 3, "9", 7)); // ['4', 5, '3', 9, '7']
+
+// function flatArray(array) {
+//     const newArray = [];
+//     for (const elem of array) {
+//       if (Array.isArray(elem)) {
+//         for (const item of elem) {
+//           newArray.push(item);
+//         }
+//       } else {
+//         newArray.push(elem);
+//       }
+//     }
+//     return newArray;
+//   }
+
+//   console.log(flatArray(["a", 5, ["3", 7, 8], "45", [1, 3, 7, 8]]));
