@@ -1,192 +1,315 @@
-// function a(onSuccess, onUnsuccess) {
-//   console.log(onSuccess)
-//   console.log(onUnsuccess)
-//   const mark = Number(prompt('What is your mark?'))
-//   if (mark >= 10) {
-//    onSuccess()
-//   } else {
-//    onUnsuccess()
-//   }
+// const users = [
+//   {
+//     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ["ipsum", "lorem"],
+//     gender: "male",
+//     age: 37,
+//   },
+//   {
+//     id: "7a3cbd18-57a1-4534-8e12-1caad921bda1",
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+//     gender: "female",
+//     age: 34,
+//   },
+//   {
+//     id: "88beb2f3-e4c2-49f3-a0a0-ecf957a95af3",
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+//     gender: "male",
+//     age: 24,
+//   },
+//   {
+//     id: "249b6175-5c30-44c6-b154-f120923736f5",
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     skills: ["adipisicing", "irure", "velit"],
+//     gender: "female",
+//     age: 21,
+//   },
+//   {
+//     id: "334f8cb3-eb04-45e6-abf4-4935dd439b70",
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     skills: ["ex", "culpa", "nostrud"],
+//     gender: "male",
+//     age: 27,
+//   },
+//   {
+//     id: "150b00fb-dd82-427d-9faf-2879ea87c695",
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     skills: ["non", "amet", "ipsum"],
+//     gender: "male",
+//     age: 38,
+//   },
+//   {
+//     id: "e1bf46ab-7168-491e-925e-f01e21394812",
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     skills: ["lorem", "veniam", "culpa"],
+//     gender: "female",
+//     age: 39,
+//   },
+// ];
+
+// const ages = []
+// for (const user of users) {
+//   ages.push(user.age)
 // }
+// console.log(ages)
 
-// function b() {
-//   alert('It is great!')
-// }
+// const ages = []
+// users.forEach(user => {ages.push(user.age)})
+// console.log(ages)
 
-// function c() {
-//   alert('It is excellent mark!')
-// }
+// const ages1 = users.map(user => user.age)
+// console.log(ages1)
 
-// function d() {
-//   alert('It is bad mark!')
-// }
+// const ages2 = users.map(({ age}) => age)
+// console.log(ages2)
 
-// a(b, d)
+// const students = [
+//   { name: "Манго", courses: ["математика", "фізика"] },
+//   { name: "Полі", courses: ["інформатика", "математика"] },
+//   { name: "Ківі", courses: ["фізика", "біологія"] },
+// ];
 
-// a(c, d)
+// const a = students.map(({ courses }) => courses)
 
-const users = [
-    {
-      id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
-      name: "Moore Hensley",
-      email: "moorehensley@indexia.com",
-      eyeColor: "blue",
-      friends: ["Sharron Pace"],
-      isActive: false,
-      balance: 2811,
-      skills: ["ipsum", "lorem"],
-      gender: "male",
-      age: 37,
-    },
-    {
-      id: "7a3cbd18-57a1-4534-8e12-1caad921bda1",
-      name: "Sharlene Bush",
-      email: "sharlenebush@tubesys.com",
-      eyeColor: "blue",
-      friends: ["Briana Decker", "Sharron Pace"],
-      isActive: true,
-      balance: 3821,
-      skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
-      gender: "female",
-      age: 34,
-    },
-    {
-      id: "88beb2f3-e4c2-49f3-a0a0-ecf957a95af3",
-      name: "Ross Vazquez",
-      email: "rossvazquez@xinware.com",
-      eyeColor: "green",
-      friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-      isActive: false,
-      balance: 3793,
-      skills: ["nulla", "anim", "proident", "ipsum", "elit"],
-      gender: "male",
-      age: 24,
-    },
-    {
-      id: "249b6175-5c30-44c6-b154-f120923736f5",
-      name: "Elma Head",
-      email: "elmahead@omatom.com",
-      eyeColor: "green",
-      friends: ["Goldie Gentry", "Aisha Tran"],
-      isActive: true,
-      balance: 2278,
-      skills: ["adipisicing", "irure", "velit"],
-      gender: "female",
-      age: 21,
-    },
-    {
-      id: "334f8cb3-eb04-45e6-abf4-4935dd439b70",
-      name: "Carey Barr",
-      email: "careybarr@nurali.com",
-      eyeColor: "blue",
-      friends: ["Jordan Sampson", "Eddie Strong"],
-      isActive: true,
-      balance: 3951,
-      skills: ["ex", "culpa", "nostrud"],
-      gender: "male",
-      age: 27,
-    },
-    {
-      id: "150b00fb-dd82-427d-9faf-2879ea87c695",
-      name: "Blackburn Dotson",
-      email: "blackburndotson@furnigeer.com",
-      eyeColor: "brown",
-      friends: ["Jacklyn Lucas", "Linda Chapman"],
-      isActive: false,
-      balance: 1498,
-      skills: ["non", "amet", "ipsum"],
-      gender: "male",
-      age: 38,
-    },
-    {
-      id: "e1bf46ab-7168-491e-925e-f01e21394812",
-      name: "Sheree Anthony",
-      email: "shereeanthony@kog.com",
-      eyeColor: "brown",
-      friends: ["Goldie Gentry", "Briana Decker"],
-      isActive: true,
-      balance: 2764,
-      skills: ["lorem", "veniam", "culpa"],
-      gender: "female",
-      age: 39,
-    },
-  ];
-  
-//   const newUsers = []
-  
-//   users.forEach(function(user, index) {
-//     // console.log('N:', index + 1)
-//     // // console.log(user)
-//     const {name, age, ...restProps} = user;
-//     // console.log(`${index + 1} - ${name} - ${age}`)
-//     // console.log(restProps)
-//     newUsers.push(restProps)
-//   })
-  
-//   console.log(newUsers)
-  
-//   const classicAdd = function (a, b, c) {
-//     console.log(arguments)
-//     return a + b + c;
-//   };
+// const b = a.flat()
 
-//   classicAdd(1, 2, 3)
-  
-//   const arrowAdd1 = (a, b, c) => {
-//     // console.log(arguments)
-//     return a + b + c;
-//   };
+// console.log(b)
+// console.log(a)
 
-//   arrowAdd1(1, 2, 3)
-  
-//   const arrowAdd2 = (a, b, c) => a + b + c;
+// const courses = students.flatMap(({courses}) => courses);
+// console.log(courses) // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія']
 
-//   console.log(arrowAdd2(1, 2, 3))
-  
-// const mathOperations = (num1, num2, callback1, callback2) => {
-//     if (num1 > num2) {
-//       const result = callback1(num1, num2);
-//       return result;
-//     } else if (num2 > num1) {
-//       return callback2(num1, num2);
-//     } else {
-//       return "Enter another numbers";
-//     }
-//   };
-  
-//   const add = (num1, num2) => num1 + num2;
-//   const substract = (num1, num2) => num2 - num1;
-  
-//   const multiply = (num1, num2) => num1 * num2;
-//   const divide = (num1, num2) => num2 / num1;
-  
-//   console.log(mathOperations(10, 20, add, substract)); // 10
-//   console.log(mathOperations(100, 20, add, substract)); // 120
-//   console.log(mathOperations(200, 200, add, substract)); // 'Enter another numbers'
+// const students = [
+//   { name: "Манго", courses: ["математика", "фізика", [1, 2, [7, 8, [100, 700, [5, 10]]]]] },
+//   { name: "Полі", courses: ["інформатика", "математика", [3, 4, [9, 10]]] },
+//   { name: "Ківі", courses: ["фізика", "біологія", [5, 6]] },
+// ];
 
-//   console.log(mathOperations(10, 20, multiply, divide)); //2
-//   console.log(mathOperations(100, 20, multiply, divide)); //2000
-  
-//   console.log(mathOperations(10, 20, (num1, num2) => num1 + num2, (num1, num2) => num2 - num1)); // 10
-  
-//   const newUsers = []
-  
-//   users.forEach((user, index) => {
-//     const {name, age, ...restProps} = user
-//     console.log(`${index + 1} - ${name} - ${age}`)
-//     newUsers.push(restProps)
-//   })
+// const courses0 = students.map(({courses}) => courses);
 
-  
-//   users.forEach(({name, age, ...restProps}, index) => {
-//     console.log(`${index + 1} - ${name} - ${age}`)
-//     newUsers.push(restProps)
-//   })
-  
-  // console.log(newUsers)
+// console.log(courses0)
 
+// const courses = students.flatMap(({courses}) => courses);
 
+// console.log(courses)
 
-  users.forEach( ({name, age}) => {
-    console.log(`${name} - ${age}`)
-  })
+// const a = students.map(({ courses }) => courses)
+
+// console.log(a)
+
+// console.log(a.flat(Infinity))
+
+// const users1 = users.filter(({ balance }) => balance > 3000 )
+// console.log(users1)
+
+// const students = [
+//   { name: "Манго", courses: ["математика", "фізика"] },
+//   { name: "Полі", courses: ["інформатика", "математика"] },
+//   { name: "Ківі", courses: ["фізика", "біологія"] },
+// ];
+
+// const allCourses = students.flatMap(student => student.courses);
+// // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
+// console.log(allCourses)
+
+// // const uniqueCourses = allCourses.filter(
+// //   (course, index, array) => {
+// //   console.log('#iteration', index + 1)
+// //   console.log('index', index)
+// //   console.log(array.indexOf(course))
+// //   return array.indexOf(course) === index
+// //   }
+// // );
+
+// const uniqueCourses = allCourses.filter(
+//   (course, index, array) => array.indexOf(course) === index
+// );
+
+// console.log(uniqueCourses)
+
+// const users2 = users.filter(({ name, balance }) => balance > 3000 && name[0] === "S")
+// console.log(users2)
+
+// const userFind = users.find(({ name, balance }) => balance > 3000 && name[0] === "S")
+// console.log(userFind)
+
+// const userFind = users.find(({ balance }) => balance > 3000 )
+// console.log(userFind)
+
+// console.log(users.indexOf(userFind))
+
+// const index = users.findIndex(({  balance }) => balance > 3000 )
+// console.log(index)
+
+// const result1 = users.every(({ balance }) => balance > 1000)
+
+// console.log(result1)
+
+// const result2 = users.every(({age}) => age >= 20 && age <=30)
+
+// console.log(result2)
+
+// const result3 = users.some(({ eyeColor }) => eyeColor === 'green')
+// console.log(result3)
+
+// const result4 = users.some(({friends}) => friends.length > 5)
+// console.log(result4)
+
+// const numbers = [2, 7, 3, 14, 6]
+
+// const total = numbers.reduce((previousValue, number) => {
+//   return previousValue + number;
+// }, 0);
+
+// console.log(total); // 32
+
+// const array = [2, 7, 3, 14, 6]
+// const init = 0
+// const total = array.reduce((previousValue, number, index) => {
+//   console.log('Iteration:', index + 1)
+//   console.log('previousValue', previousValue)
+//   console.log('number', number)
+//   const res = previousValue + number;
+//   console.log('res', res)
+//   return res;
+// }, init);
+
+// // console.log(total); // 32
+
+// const users = [
+//   {
+//     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ["ipsum", "lorem"],
+//     gender: "male",
+//     age: 37,
+//   },
+//   {
+//     id: "7a3cbd18-57a1-4534-8e12-1caad921bda1",
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+//     gender: "female",
+//     age: 34,
+//   },
+//   {
+//     id: "88beb2f3-e4c2-49f3-a0a0-ecf957a95af3",
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+//     gender: "male",
+//     age: 24,
+//   },
+//   {
+//     id: "249b6175-5c30-44c6-b154-f120923736f5",
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     skills: ["adipisicing", "irure", "velit"],
+//     gender: "female",
+//     age: 21,
+//   },
+//   {
+//     id: "334f8cb3-eb04-45e6-abf4-4935dd439b70",
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     skills: ["ex", "culpa", "nostrud"],
+//     gender: "male",
+//     age: 27,
+//   },
+//   {
+//     id: "150b00fb-dd82-427d-9faf-2879ea87c695",
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     skills: ["non", "amet", "ipsum"],
+//     gender: "male",
+//     age: 38,
+//   },
+//   {
+//     id: "e1bf46ab-7168-491e-925e-f01e21394812",
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     skills: ["lorem", "veniam", "culpa"],
+//     gender: "female",
+//     age: 39,
+//   },
+// ];
+
+// const result1 = users.map(({balance}) => balance)
+// console.log(result1)
+// const result2 = result1.filter(el => el > 2500)
+// console.log(result2)
+// const result3 = result2.reduce((acc, item) => acc + item, 0)
+// console.log(result3)
+
+// const result = users
+//   .map(({ balance }) => balance)
+//   .filter((el) => el > 2500)
+//   .reduce((acc, item) => acc + item, 0);
+// console.log(result);
