@@ -1,245 +1,46 @@
-// class Vehicle {
-//     // Тіло класу
-//   }
-  
-//   const vehicle = new Vehicle();
-//   console.log(vehicle); // {}
-  
+// sort() за замовчуванням сортує в алфавітному порядку. Тобто ось так
+//  const names =  [...books].sort();
+//  запис коротший чи краще записувати з localeCompare:
+//  const names =  [...books].sort((first, second) => first.localeCompare(second))
 
+// const books = ['b', 'M', 'i', 'Q', 'A']
 
-// class Vehicle {
-//     constructor(brand, model, color, maxSpeed) {
-//         // Ініціалізація властивостей екземпляра
-//         this.brand = brand;
-//         this.model = model;
-//         this.color = color;
-//         this.maxSpeed = maxSpeed;
-//       }
-//   }
-  
-//   const vehicle1 = new Vehicle("Toyota", "C-HR", 'black', 180);
-//   console.log(vehicle1); 
-//   const vehicle2 = new Vehicle("Nissan", "Primera", 'grey', 160);
-// //   console.log(vehicle2); 
-//   console.log(vehicle2.color)
+// const names1 =  [...books].sort();
+// const names2 =  [...books].sort((first, second) => first.localeCompare(second))
+// console.log(names1)
+// console.log(names2)
 
+// const map = new Map()
+// const a = {a: 1}
+// map.set(a, 'string')
+// console.log(map)
+// console.log(map.get(a))
 
+// Можете відповісти з прикладами різницю між __proto__ and prototype?
+//  const num1 = 5;
+//  const num2 = 10;
+//  const array1 = [];
+//  const array2 = []
 
-// class Vehicle {
-//     constructor({brand, model, color, maxSpeed}) {
-//         // Ініціалізація властивостей екземпляра
-//         this.brand = brand;
-//         this.model = model;
-//         this.color = color;
-//         this.maxSpeed = maxSpeed;
-//       }
-//   }
-  
-//   const vehicle1 = new Vehicle({brand: "Toyota", model: "C-HR", color: 'black', maxSpeed: 180});
-//   console.log(vehicle1); 
- 
+//  console.log(num1.__proto__ === array2.__proto__)
 
+const array = [1, 2, 3, 4, 5];
 
-// class Vehicle {
-//     constructor({brand, model, color, maxSpeed, mileage}) {
-//         // Ініціалізація властивостей екземпляра
-//         this.brand = brand;
-//         this.model = model;
-//         this.color = color;
-//         this.maxSpeed = maxSpeed;
-//         this.mileage = mileage
-//       }
+// const getSum = (arr) => {
+//   return arr.reduce((acc, item, index) => {
+//     if (index === 0) {
+//       return [item];
+//     } else {
+//       return [...acc, acc[index - 1] + item];
+//     }
+//   }, []);
+// };
 
-//       incrementMileage(distance) {
-//         this.mileage += distance;
-//       }
-//   }
-  
-//   const vehicle1 = new Vehicle({brand: "Toyota", model: "C-HR", color: 'black', maxSpeed: 180, mileage: 10000});
-//   console.log(vehicle1); 
-//   vehicle1.incrementMileage(500)
-//   console.log(vehicle1.mileage)
+const getSum = (arr) =>
+  arr.reduce(
+    (acc, item, index) =>
+      index === 0 ? [item] : [...acc, acc[index - 1] + item],
+    []
+  );
 
-
-
-
-
-// class Vehicle {
-
-//     #owner
-
-//     constructor({brand, model, color, maxSpeed, mileage, owner}) {
-//         // Ініціалізація властивостей екземпляра
-//         this.brand = brand;
-//         this.model = model;
-//         this.color = color;
-//         this.maxSpeed = maxSpeed;
-//         this.mileage = mileage;
-//         this.#owner = owner
-    
-//       }
-
-//       incrementMileage(distance) {
-//         this.mileage += distance;
-//       }
-
-//       getOwner() {
-//         return this.#owner;
-//       }
-    
-//       changeOwner(newOwner) {
-//         this.#owner = newOwner;
-//       }
-//   }
-  
-//   const vehicle1 = new Vehicle({brand: "Toyota", model: "C-HR", color: 'black', maxSpeed: 180, mileage: 10000, owner: 'Petrenko'});
-//   console.log(vehicle1); 
-//   console.log(vehicle1.getOwner())
-//   vehicle1.changeOwner('Ivanenko')
-//   console.log(vehicle1.getOwner())
-
-
-
-
-// class Vehicle {
-
-//     #owner
-
-//     constructor({brand, model, color, maxSpeed, mileage, owner}) {
-//         // Ініціалізація властивостей екземпляра
-//         this.brand = brand;
-//         this.model = model;
-//         this.color = color;
-//         this.maxSpeed = maxSpeed;
-//         this.mileage = mileage;
-//         this.#owner = owner
-    
-//       }
-
-//       incrementMileage(distance) {
-//         this.mileage += distance;
-//       }
-
-//       get owner() {
-//         return this.#owner;
-//       }
-    
-//       set owner(newOwner) {
-//         this.#owner = newOwner;
-//       }
-//   }
-  
-//   const vehicle1 = new Vehicle({brand: "Toyota", model: "C-HR", color: 'black', maxSpeed: 180, mileage: 10000, owner: 'Petrenko'});
-//   console.log(vehicle1); 
-//   console.log(vehicle1.owner)
-//   vehicle1.owner = 'Ivanenko'
-//   console.log(vehicle1.owner)
-
-
-
-// class Vehicle {
-
-//     static MAX_MILIAGE = 100000;
-
-//     static notifyAboutCheckUp() {
-//         console.log('Your car needs a technical inspection')
-//       }
-
-//     #owner
-
-//     constructor({brand, model, color, maxSpeed, mileage, owner}) {
-//         // Ініціалізація властивостей екземпляра
-//         this.brand = brand;
-//         this.model = model;
-//         this.color = color;
-//         this.maxSpeed = maxSpeed;
-//         this.mileage = mileage;
-//         this.#owner = owner
-    
-//       }
-
-//       incrementMileage(distance) {
-//         this.mileage += distance;
-//         if(this.mileage >= Vehicle.MAX_MILIAGE) {
-//             Vehicle.notifyAboutCheckUp()
-//         }
-//       }
-
-//       get owner() {
-//         return this.#owner;
-//       }
-    
-//       set owner(newOwner) {
-//         this.#owner = newOwner;
-//       }
-//   }
-  
-//   const vehicle1 = new Vehicle({brand: "Toyota", model: "C-HR", color: 'black', maxSpeed: 180, mileage: 10000, owner: 'Petrenko'});
-//   console.log(vehicle1); 
-//   vehicle1.incrementMileage(100000)
-
-
-
-
-
-
-
-class Vehicle {
-
-    static MAX_MILIAGE = 100000;
-
-    static notifyAboutCheckUp() {
-        console.log('Your car needs a technical inspection')
-      }
-
-    #owner
-
-    constructor({brand, model, color, maxSpeed, mileage, owner}) {
-        // Ініціалізація властивостей екземпляра
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.maxSpeed = maxSpeed;
-        this.mileage = mileage;
-        this.#owner = owner
-    
-      }
-
-      incrementMileage(distance) {
-        this.mileage += distance;
-        if(this.mileage >= Vehicle.MAX_MILIAGE) {
-            Vehicle.notifyAboutCheckUp()
-        }
-      }
-
-      get owner() {
-        return this.#owner;
-      }
-    
-      set owner(newOwner) {
-        this.#owner = newOwner;
-      }
-  }
-  
-  class Bus extends Vehicle {
-    constructor({brand, model, color, maxSpeed, mileage, owner, seats, destination, driver}) {
-      // Виклик конструктора батьківського класу User
-      super({brand, model, color, maxSpeed, mileage, owner});
-      this.seats = seats;
-      this.destination = destination;
-      this.driver = driver
-
-    }
-
-    changeDriver(driver) {
-        this.driver = driver;
-      }
-  }
-  
-  const bus = new Bus({color: 'red',brand: "bus", model: "bus",  maxSpeed: 120, mileage: 20000, owner: 'Petrenko', seats: 32, destination: 'Lviv', driver: 'Zubko'} );
-  console.log(bus); 
-  console.log(bus.color);
-  console.log(bus.driver) 
-  bus.changeDriver('Zolotov')
-  console.log(bus.driver) 
-  console.log(Bus.MAX_MILIAGE) 
+console.log(getSum(array)); // // [1, 3, 6, 10, 15]
