@@ -67,16 +67,26 @@ function renderList() {
   // list.innerHTML = ''
   // list.insertAdjacentHTML('afterbegin', markup)
   list.innerHTML = markup;
-  const titles = document.querySelectorAll(".book-title");
-  titles.forEach((title) => title.addEventListener("click", renderPreview));
-  const deleteBtns = document.querySelectorAll(".delete");
-  deleteBtns.forEach((btn) => btn.addEventListener("click", deleteBook));
+  // const titles = document.querySelectorAll(".book-title");
+  // titles.forEach((title) => title.addEventListener("click", renderPreview));
+  // const deleteBtns = document.querySelectorAll(".delete");
+  // deleteBtns.forEach((btn) => btn.addEventListener("click", deleteBook));
+}
+
+list.addEventListener("click", handleClick);
+
+function handleClick({ target }) {
+  if (target.nodeName === "P") {
+    renderPreview(target);
+  } else if (target.classList.contains("delete")) {
+    deleteBook(target);
+  }
 }
 
 renderList();
 
-function renderPreview(event) {
-  const bookTitle = event.target.textContent;
+function renderPreview(target) {
+  const bookTitle = target.textContent;
   const book = books.find(({ title }) => title === bookTitle);
   const markup = createPreviewMarkup(book);
   secondDiv.innerHTML = "";
@@ -92,8 +102,8 @@ function createPreviewMarkup({ id, title, author, img, plot }) {
     </div>`;
 }
 
-function deleteBook(event) {
-  const bookId = event.target.parentNode.id;
+function deleteBook(target) {
+  const bookId = target.parentNode.id;
   books = books.filter(({ id }) => id !== bookId);
   renderList();
   const bookInfo = document.querySelector(".book-info");
@@ -115,7 +125,12 @@ function addBook() {
   const form = document.querySelector("form");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(newBook);
+    // console.log(newBook);
+    books.push(newBook);
+    renderList();
+    const markup = createPreviewMarkup(newBook);
+    secondDiv.innerHTML = "";
+    secondDiv.insertAdjacentHTML("afterbegin", markup);
   });
 }
 
@@ -135,9 +150,9 @@ function fillObject(book) {
   const inputs = document.querySelectorAll("input");
   inputs.forEach((input) =>
     input.addEventListener("change", (event) => {
-      console.log(event.target);
-      console.log(event.target.name);
-      console.log(event.target.value);
+      // console.log(event.target);
+      // console.log(event.target.name);
+      // console.log(event.target.value);
       book[event.target.name] = event.target.value;
     })
   );
