@@ -1,15 +1,21 @@
-#root {
-    display: flex;
+/* .gallery {
+  display: grid;
+  width: 400px;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-auto-rows: 240px;
+  grid-gap: 12px;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.leftDiv {
-    width: 40%;
-    background-color: aliceblue;
-    height: 100vh;
-}
 
-.rightDiv {
-    width: 60%;
-    background-color:antiquewhite;
-    height: 100vh;
-}
+
+
+.gallery__image {
+  height: 100%;
+  width: 400px;
+  object-fit: cover;
+  transition: transform 200ms ease-in-out;
+} */
