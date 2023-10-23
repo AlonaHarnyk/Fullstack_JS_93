@@ -13,5 +13,5 @@ let timeoutId = null;
 const refs = {};
 
 /*
- * Функции
+ * Функції
  */

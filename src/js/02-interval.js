@@ -5,5 +5,5 @@ import '../css/common.css';
  */
 
 /*
- * Очистка интервала с clearInterval(intervalId)
+ * Видалення інтервалу с clearInterval(intervalId)
  */
