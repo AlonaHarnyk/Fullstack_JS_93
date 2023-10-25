@@ -1,5 +1,5 @@
 /*
- * Создание промиса
+ * Створення проміса
  *  - Класс Promise
  *  - resolve
  *  - reject
@@ -32,7 +32,7 @@ const promise = new Promise((resolve, reject) => {
 // }
 
 /*
- * Цепочки промисов (chaining)
+ * Цепочки промісів (chaining)
  * Promise.prototype.catch(error)
  * Promise.prototype.finally()
  */
