@@ -6,6 +6,12 @@
  *  - Promise.prototype.then(onResolve, onReject)
  */
 
+const promise = new Promise((resolve, reject) => {
+  resolve('Hello');
+});
+
+// promise.then(onFulfilled);
+
 // function onFulfilled(result) {
 //   console.log('onFulfilled -> onFulfilled');
 //   console.log(`✅ ${result}`);
@@ -22,28 +28,32 @@
  * Promise.prototype.finally()
  */
 
-// promise
-//   .then(value1 => {
-//     console.log(value1, '-> promise1');
-//     return [value1];
-//   })
-//   .catch(err => {
-//     console.log('Error', err);
-//     return Promise.reject('err');
-//   })
-//   .then(value2 => {
-//     if (value2.length !== 0) {
-//       console.log();
-//     }
-//     return 'food';
-//   })
-//   .then(value3 => {
-//     return value3;
-//   })
-//   .then(value4 => {
-//     console.log('value4->', value4);
-//   })
-//   .catch(() => {
-//     console.log('last catch');
-//   })
-//   .finally(() => {});
+promise
+  .then(value1 => {
+    console.log(value1, '-> promise1');
+    return [value1];
+  })
+  .catch(err => {
+    console.log('Error', err);
+    return Promise.reject('err');
+  })
+  .then(value2 => {
+    if (value2.length !== 0) {
+      console.log();
+    }
+    return 'food';
+  })
+  .then(value3 => {
+    return value3;
+  })
+  .then(value4 => {
+    console.log('value4->', value4);
+  })
+  .catch(() => {
+    console.log('last catch');
+  })
+  .finally(() => {
+    console.log('End');
+  });
+
+// ==============
