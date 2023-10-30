@@ -1,4 +1,4 @@
-## [Частина перша - теорія](https://docs.google.com/presentation/d/1YK1DogtkPz0zTo313uAeuvvNh1vFfbStCD-g39jGd5M/edit?usp=sharing)
+## [Частина перша - теорія](https://docs.google.com/presentation/d/16mgJGhyHCL30vxNsy9GAk3JHtNmHQ6XqSCBwBsKbssY/edit?usp=sharing)
 
 - Архітектура клієнт-сервер
   - Протоколи передачі даних: HTTP и HTTPS
