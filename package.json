@@ -19,5 +19,8 @@
   "homepage": "https://github.com/GoITteacher/js-example#readme",
   "dependencies": {
     "parcel": "^2.10.0"
+  },
+  "devDependencies": {
+    "posthtml-include": "^1.7.4"
   }
 }

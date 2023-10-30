@@ -11,56 +11,22 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <p><a href="index.html">На главную</a></p>
+    <header>
+      <a href="./partials/recipe.html">RECIPE</a>
+      <a href="index.html">На главную</a>
+    </header>
+    <include src="./partials/binance.html"></include>
+    <include src="./partials/hero.html"></include>
+    <include src="./partials/quotes.html"></include>
+    <include src="./partials/location.html"></include>
+    <include src="./partials/translate.html"></include>
+    <include src="./partials/inst.html"></include>
+    <include src="./partials/user.html"></include>
+    <include src="./partials/pokemon.html"></include>
 
-    <hr>
-    <form class="form-inline search-form js-search-form">
-      <div class="form-group m-2">
-        <input type="text" class="form-control" name="query" />
-      </div>
-      <button type="submit" class="btn btn-primary">Искать</button>
-    </form>
-    <div class="js-card-container"></div>
-    <hr>
-
-
-
-
-    <form class="form-inline search-form js-search-form1">
-      <div class="form-group m-2">
-        <input type="text" class="form-control" name="query"/>
-      </div>
-      <button type="submit" class="btn btn-primary">Искать</button>
-    </form>
-    <div class="js-card-container1"></div>
-    <hr>
-
-<!-- 
-
-    <form class="form-inline search-form js-search-form2">
-      <div class="form-group m-2">
-        <input type="text" class="form-control" name="query" />
-      </div>
-      <button type="submit" class="btn btn-primary">Искать</button>
-    </form>
-    <div class="js-card-container2"></div>
-    <hr>
-
-
-
-
-    <form class="form-inline search-form js-search-form3">
-      <div class="form-group m-2">
-        <input type="text" class="form-control" name="lat" value='48.85824'/>
-        <input type="text" class="form-control" name="lng" value='2.29451'/>
-      </div>
-      <button type="submit" class="btn btn-primary">Искать</button>
-    </form>
-    <div class="js-card-container3"></div>
-    <hr> -->
-    
-    <script src="js/01-script.js"></script>
+    <script src="js/01-script.js" type="module"></script>
   </body>
 </html>
