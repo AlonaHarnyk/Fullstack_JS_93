@@ -1,75 +1,96 @@
-import { NewsAPI } from './modules/newsApi';
-
-const newsApi = new NewsAPI();
-let maxPage = 1;
+import { NewsApi } from './modules/newsApi';
 
 const refs = {
-  formElem: document.querySelector('.js-search-form'),
+  formEl: document.querySelector('.js-search-form'),
   articleListElem: document.querySelector('.js-article-list'),
-  btnLoadMore: document.querySelector('.js-btn-load'),
+  loadBtnElem: document.querySelector('.js-btn-load'),
+  spinnerElem: document.querySelector('.spinner'),
 };
 
-refs.formElem.addEventListener('submit', onFormSubmit);
-refs.btnLoadMore.addEventListener('click', onLoadMoreClick);
+const newsApi = new NewsApi();
+
+refs.formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  const query = e.target.elements.query.value;
-  newsApi.query = query;
+
+  newsApi.q = e.target.elements.query.value;
   newsApi.page = 1;
-  newsApi.getArticles().then(data => {
-    maxPage = Math.ceil(data.totalResults / newsApi.pageSize);
-    refs.articleListElem.innerHTML = '';
-    renderArticles(data.articles);
-    refs.btnLoadMore.disabled = false;
-    updateStatusBtn();
-  });
+  showSpinner();
+  newsApi
+    .getArticles()
+    .then(data => {
+      refs.articleListElem.innerHTML = '';
+      const markup = articlesTemplate(data.articles);
+      refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+      newsApi.totalPage = Math.ceil(data.totalResults / 20);
+      updateBtnStatus();
+    })
+    .catch(er => console.log(er))
+    .finally(() => {
+      hideSpinner();
+    });
 }
+
+refs.loadBtnElem.addEventListener('click', onLoadMoreClick);
 
 function onLoadMoreClick(e) {
-  newsApi.page += 1;
-  newsApi.getArticles().then(data => {
-    renderArticles(data.articles);
-    updateStatusBtn();
-  });
+  newsApi.page++;
+  updateBtnStatus();
+  showSpinner();
+  newsApi
+    .getArticles()
+    .then(data => {
+      const markup = articlesTemplate(data.articles);
+      refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+    })
+    .catch(er => console.log(er))
+    .finally(() => {
+      hideSpinner();
+    });
 }
 
-function updateStatusBtn() {
-  if (newsApi.page === maxPage) {
-    refs.btnLoadMore.disabled = true;
-  }
-}
-
-function templateArticle({
-  author,
+function articleTemplate({
+  urlToImage,
   title,
   description,
-  content,
-  urlToImage,
+  author,
   publishedAt,
 }) {
-  return `
-  <li class="card news-card">
-        <img loading="lazy"
-          class="news-image"
-          src="${urlToImage}"
-          alt="${title}"
-        />
-        <h3 class="card-title">
-          ${title}
-        </h3>
-        <p class="card-desc">
-        ${description}
-        </p>
-        <div class="card-footer">
-          <span>${author}</span>
-          <span>${publishedAt}</span>
-        </div>
-      </li>`;
+  return `<li class="card news-card">
+  <img loading="lazy"
+    class="news-image"
+    src="${urlToImage}"
+    alt="${title}"
+  />
+  <h3 class="card-title">
+    ${title}
+  </h3>
+  <p class="card-desc">
+  ${description}
+  </p>
+  <div class="card-footer">
+    <span>${author}</span>
+    <span>${publishedAt}</span>
+  </div>
+</li>`;
 }
 
-function renderArticles(articles) {
-  const markup = articles.map(templateArticle).join('');
-  // refs.articleListElem.innerHTML = markup;
-  refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+function articlesTemplate(articles) {
+  const markup = articles.map(articleTemplate).join('');
+  return markup;
+}
+
+function updateBtnStatus() {
+  //page = 5;
+  // totalPage = 5;
+  refs.loadBtnElem.disabled = newsApi.page >= newsApi.totalPage; // true
+}
+
+function showSpinner() {
+  refs.spinnerElem.classList.remove('is-hidden');
+}
+
+function hideSpinner() {
+  refs.spinnerElem.classList.add('is-hidden');
 }

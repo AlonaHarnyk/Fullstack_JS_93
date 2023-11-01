@@ -69,7 +69,16 @@ img {
   display: none;
 }
 
-.button > .spinner.is-hidden {
+.spinner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000087;
+  display: block;
+}
+.spinner.is-hidden {
   display: none;
 }
 
