@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/GoITteacher/js-example#readme",
   "dependencies": {
+    "axios": "^1.6.0",
     "parcel": "^2.10.0"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
     "posthtml-include": "^1.7.4"
   }
 }
