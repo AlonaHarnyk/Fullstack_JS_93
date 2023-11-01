@@ -1,81 +1,86 @@
-import { NewsAPI } from './modules/newsApi2';
+import { NewsApi } from './modules/newsApi';
 
-const newsApi = new NewsAPI();
-let maxPage = 1;
 const refs = {
-  targetElem: document.querySelector('.js-target'),
-  formElem: document.querySelector('.js-search-form'),
+  formEl: document.querySelector('.js-search-form'),
   articleListElem: document.querySelector('.js-article-list'),
+  targetElem: document.querySelector('.target'),
 };
+const newsApi = new NewsApi();
 
-// =====================================
-refs.formElem.addEventListener('submit', onFormSubmit);
+var options = {
+  rootMargin: '500px',
+  threshold: 0,
+};
+const callback = function (entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    newsApi.page++;
+    updateStatusObserver();
+    newsApi
+      .getArticles()
+      .then(data => {
+        const markup = articlesTemplate(data.articles);
+        refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+      })
+      .catch(er => console.log(er));
+  });
+};
+const observer = new IntersectionObserver(callback, options);
+refs.formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  const query = e.target.elements.query.value;
-  newsApi.query = query;
+
+  newsApi.q = e.target.elements.query.value;
   newsApi.page = 1;
-  newsApi.getArticles().then(data => {
-    refs.articleListElem.innerHTML = '';
-    maxPage = data.total_pages;
-    renderArticles(data.articles);
-    observer.observe(refs.targetElem);
-    updateStatusObserver();
-  });
+  newsApi
+    .getArticles()
+    .then(data => {
+      refs.articleListElem.innerHTML = '';
+      const markup = articlesTemplate(data.articles);
+      refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+      newsApi.totalPage = Math.ceil(data.totalResults / 20);
+      observer.observe(refs.targetElem);
+      updateStatusObserver();
+    })
+    .catch(er => console.log(er));
 }
 
-function loadMore() {
-  newsApi.page += 1;
-  newsApi.getArticles().then(data => {
-    renderArticles(data.articles);
-    window.scrollBy({
-      top: 700,
-      behavior: 'smooth',
-    });
-    updateStatusObserver();
-  });
+function articleTemplate({
+  urlToImage,
+  title,
+  description,
+  author,
+  publishedAt,
+}) {
+  return `<li class="card news-card">
+  <img loading="lazy"
+    class="news-image"
+    src="${urlToImage}"
+    alt="${title}"
+  />
+  <h3 class="card-title">
+    ${title}
+  </h3>
+  <p class="card-desc">
+  ${description}
+  </p>
+  <div class="card-footer">
+    <span>${author}</span>
+    <span>${publishedAt}</span>
+  </div>
+</li>`;
 }
-// =====================================
-function callback(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      console.log('Hello');
-      loadMore();
-    }
-  });
+
+function articlesTemplate(articles) {
+  const markup = articles.map(articleTemplate).join('');
+  return markup;
 }
-const observer = new IntersectionObserver(callback);
-// ======================================
 
 function updateStatusObserver() {
-  if (newsApi.page === maxPage) {
+  const isLastPage = newsApi.page >= newsApi.totalPage;
+  if (isLastPage) {
+    console.log('Unobserve');
     observer.unobserve(refs.targetElem);
   }
-}
-
-function templateArticle({ author, title, summary, media, published_date }) {
-  return `
-    <li class="card news-card">
-          <img loading="lazy"
-            class="news-image"
-            src="${media}"
-            alt="${title}"
-          />
-          <h3 class="card-title">
-            ${title}
-          </h3>
-          <p class="card-desc">
-          ${summary}
-          </p>
-          <div class="card-footer">
-            <span>${author}</span>
-            <span>${published_date}</span>
-          </div>
-        </li>`;
-}
-
-function renderArticles(articles) {
-  const markup = articles.map(templateArticle).join('');
-  refs.articleListElem.insertAdjacentHTML('beforeend', markup);
 }

@@ -89,3 +89,9 @@ img {
   align-items: center;
   width: fit-content;
 }
+
+.target {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
