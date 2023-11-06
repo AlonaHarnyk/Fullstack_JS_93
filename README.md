@@ -1,23 +1,24 @@
 # ПЛАН
 
-- Пакет [json-server](https://github.com/typicode/json-server)
+- Пакет [json-server] (https://github.com/typicode/json-server)
 - Postman
-- Работа с приватным API
-  - **C**reate
-    - Метод POST
-    - Тело
-    - Заголовки
-    - Ответ
+- axios
+- Робота з приватним API
   - **R**ead
     - Метод GET
-    - Ответ
-  - **U**pdate
-    - Методы PUT и PATCH
-    - Тело
+    - Відповідь
+  - **C**reate
+    - Метод POST
+    - Тіло
     - Заголовки
-    - Ответ
+    - Відповідь
+  - **U**pdate
+    - Методи PUT та PATCH
+    - Тіло
+    - Заголовки
+    - Відповідь
   - **D**elete
     - Метод DELETE
-    - Ответ
+    - Відповідь
 
 ---
