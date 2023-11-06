@@ -17,20 +17,13 @@
     "url": "https://github.com/GoITteacher/js-example/issues"
   },
   "homepage": "https://github.com/GoITteacher/js-example#readme",
+  "type": "module",
   "dependencies": {
-    "axios": "^0.27.2",
-    "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.5"
+    "axios": "^1.6.0",
+    "parcel": "^2.10.2"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.4.0",
-    "@parcel/transformer-sass": "^2.6.0",
-    "parcel": "^2.6.0",
-    "parcel-plugin-handlebars-precompile": "^1.0.2",
-    "parcel-plugin-nuke-dist": "^1.0.1",
-    "parcel-reporter-clean-dist": "^1.0.4",
-    "parcel-transformer-hbs": "^1.0.4",
+    "buffer": "^6.0.3",
     "posthtml-include": "^1.7.4"
-  },
-  "type": "module"
+  }
 }

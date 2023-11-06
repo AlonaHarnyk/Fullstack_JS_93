@@ -1,74 +1,31 @@
-import axios from 'axios';
+import axios2 from 'axios';
 
-const axiosV2 = axios.create({
-  baseURL: 'http://localhost:4040',
+const axios = axios2.create({
+  baseURL: 'http://localhost:3000/books',
+  headers: { test: 'hello', myKey: 'KUKU-KEY' },
+  params: {
+    key: '213132434234234',
+  },
 });
 
-const BASE_URL = 'http://localhost:4040';
-
-export class BooksAPI {
-  getAllBooks() {
-    return fetch(`${BASE_URL}/books`).then(response => {
-      return response.json();
-    });
+export class BooksApi {
+  getBooks() {
+    return axios.get().then(res => res.data);
   }
 
   createBook(book) {
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(book),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    };
-
-    return fetch(`${BASE_URL}/books`, options);
-  }
-
-  deleteBook(id) {
-    axiosV2.delete(`/books/${id}`);
-
-    // fetch(`${BASE_URL}`, {
-    //   method: 'DELETE',
-    // });
-  }
-
-  resetBook({
-    bookId: id,
-    bookDesc: desc,
-    bookTitle: title,
-    bookAuthor: author,
-  }) {
-    const book = {
-      desc,
-      title,
-      author,
-    };
-
-    const options = {
-      method: 'PUT',
-      body: JSON.stringify(book),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    };
-
-    fetch(`${BASE_URL}/books/${id}`, options);
+    return axios.post('', book).then(res => res.data);
   }
 
   updateBook({ id, ...book }) {
-    const options = {
-      method: 'PATCH',
-      body: JSON.stringify(book),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    };
-
-    fetch(`${BASE_URL}/books/${id}`, options);
+    return axios.patch(`/${id}`, book);
   }
 
-  createBookByAxios(book) {
-    return axiosV2.post('/books', book);
+  resetBook({ id, ...book }) {
+    return axios.put(`/${id}`, book).then(res => res.data);
+  }
+
+  deleteBook(id) {
+    return axios.delete(`/${id}`);
   }
 }
