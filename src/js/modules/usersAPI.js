@@ -4,19 +4,24 @@ const axios = axios2.create({
 });
 
 export class UsersAPI {
-  static getUsers() {
-    return axios.get().then(res => res.data);
+  static async getUsers() {
+    const response = await axios.get();
+    return response.data;
   }
-  static createUser(user) {
-    return axios.post('', user).then(res => res.data);
+  static async createUser(user) {
+    const response = await axios.post('', user);
+    return response.data;
   }
-  static updateUser({ id, ...user }) {
-    return axios.patch(`/${id}`, user).then(res => res.data);
+  static async updateUser({ id, ...user }) {
+    const response = await axios.patch(`/${id}`, user);
+    return response.data;
   }
-  static resetUser({ id, ...user }) {
-    return axios.put(`/${id}`, user).then(res => res.data);
+  static async resetUser({ id, ...user }) {
+    const response = await axios.put(`/${id}`, user);
+    return response.data;
   }
-  static deleteUser(id) {
-    return axios.delete(`/${id}`, user);
+  static async deleteUser(id) {
+    const response = await axios.delete(`/${id}`, user);
+    return response.data;
   }
 }

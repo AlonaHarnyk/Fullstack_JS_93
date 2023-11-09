@@ -9,15 +9,21 @@ export class BooksAPI {
   getBooks() {
     return axios.get().then(res => res.data);
   }
-  createBook(book) {
-    return axios.post('', book).then(res => res.data);
+  async createBook(book) {
+    console.log('start');
+    const res = await axios.post('', book);
+    console.log('end');
+    return res.data;
   }
-  resetBook(id, book) {
-    return axios.put(`/${id}`, book).then(res => res.data);
+  async resetBook(id, book) {
+    const res = await axios.put(`/${id}`, book);
+    return res.data;
   }
+
   updateBook(id, book) {
     return axios.patch(`/${id}`, book).then(res => res.data);
   }
+
   deleteBook(id) {
     return axios.delete(`/${id}`);
   }
@@ -27,12 +33,13 @@ export class BooksAPIV2 {
   BASE_URL = 'http://localhost:3000';
   END_POINT = '/books';
 
-  getBooks() {
+  async getBooks() {
     const url = this.BASE_URL + this.END_POINT;
-    return fetch(url).then(res => res.json());
+    const res = await fetch(url);
+    res.json();
   }
 
-  createBook(book) {
+  async createBook(book) {
     const url = this.BASE_URL + this.END_POINT;
     const options = {
       method: 'POST',
@@ -42,10 +49,11 @@ export class BooksAPIV2 {
       body: JSON.stringify(book),
     };
 
-    return fetch(url, options).then(res => res.json());
+    const res = await fetch(url, options);
+    return res.json();
   }
 
-  resetBook(id, book) {
+  async resetBook(id, book) {
     const url = this.BASE_URL + this.END_POINT + `/${id}`;
     const options = {
       method: 'PUT',
@@ -55,7 +63,9 @@ export class BooksAPIV2 {
       body: JSON.stringify(book),
     };
 
-    return fetch(url, options).then(res => res.json());
+    return fetch(url, options).then(res => {
+      return res.json();
+    });
   }
 
   updateBook(id, book) {
